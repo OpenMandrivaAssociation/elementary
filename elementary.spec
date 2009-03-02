@@ -17,6 +17,7 @@ Source: 	http://download.enlightenment.org/snapshots/TMP/st/%{name}-%{version}.t
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	edje-devel >= 0.9.9.050, edje >= 0.9.9.050
 BuildRequires:	e_dbus-devel
+buildrequires:	embryo >= 0.9.9.050
 
 %description
 a basic widget set that is easy to use based on EFL for mobile
