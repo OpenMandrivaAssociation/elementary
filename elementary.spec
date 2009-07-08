@@ -1,6 +1,6 @@
 %define	name	elementary
-%define version 0.1.0.0
-%define release %mkrel 2
+%define version 0.5.0.0
+%define release %mkrel 1
 
 %define major	0
 %define libname %mklibname %{name} %major
@@ -17,7 +17,6 @@ Source: 	http://download.enlightenment.org/snapshots/TMP/st/%{name}-%{version}.t
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	edje-devel >= 0.9.9.050, edje >= 0.9.9.050
 BuildRequires:	e_dbus-devel
-buildrequires:	embryo >= 0.9.9.050
 
 %description
 a basic widget set that is easy to use based on EFL for mobile
@@ -46,13 +45,12 @@ Provides: %name-devel = %{version}-%{release}
 %setup -q
 
 %build
-./autogen.sh
 %configure2_5x 
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
