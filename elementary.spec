@@ -1,5 +1,5 @@
 %define	name	elementary
-%define version 0.5.0.0
+%define version 0.5.1.0
 %define release %mkrel 1
 
 %define major	0
