@@ -1,5 +1,5 @@
 %define	name	elementary
-%define version 0.5.1.0
+%define version 0.6.0.063
 %define release %mkrel 1
 
 %define major	0
@@ -15,7 +15,7 @@ Group: 		Graphical desktop/Enlightenment
 URL: 		http://www.enlightenment.org/
 Source: 	http://download.enlightenment.org/snapshots/TMP/st/%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	edje-devel >= 0.9.9.050, edje >= 0.9.9.050
+BuildRequires:	edje-devel >= 0.9.93.063, edje >= 0.9.93.063
 BuildRequires:	e_dbus-devel
 BuildRequires:	embryo
 
