@@ -71,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/elementary_quicklaunch
 %{_bindir}/elementary_testql
 %{_bindir}/elementary_test
+%{_libdir}/elementary
 %{_datadir}/applications/%{name}_test.desktop
 %{_datadir}/%name/images/*
 %{_datadir}/%name/themes/default.edj
@@ -89,6 +90,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.la
 %{_includedir}/%name/*.h
 %{_includedir}/Elementary.h
-
-
-
