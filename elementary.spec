@@ -1,6 +1,6 @@
 %define	name	elementary
 %define version 0.6.0.063
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major	0
 %define libname %mklibname %{name} %major
@@ -16,7 +16,7 @@ URL: 		http://www.enlightenment.org/
 Source: 	http://download.enlightenment.org/snapshots/TMP/st/%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	edje-devel >= 0.9.93.063, edje >= 0.9.93.063
-BuildRequires:	e_dbus-devel
+BuildRequires:	e_dbus-devel efreet-devel
 BuildRequires:	embryo
 
 %description
