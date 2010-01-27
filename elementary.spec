@@ -1,6 +1,6 @@
 %define	name	elementary
 %define version 0.6.0.063
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define major	0
 %define libname %mklibname %{name} %major
@@ -14,6 +14,7 @@ License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 URL: 		http://www.enlightenment.org/
 Source: 	http://download.enlightenment.org/snapshots/TMP/st/%{name}-%{version}.tar.bz2
+Patch0:		elementary-0.6.0.063-fix-desktop.patch
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	edje-devel >= 0.9.93.063, edje >= 0.9.93.063
 BuildRequires:	e_dbus-devel efreet-devel
@@ -44,6 +45,7 @@ Provides: %name-devel = %{version}-%{release}
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x 
