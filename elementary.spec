@@ -1,6 +1,6 @@
 %define	name	elementary
-%define version 0.6.0.063
-%define release %mkrel 4
+%define version 0.7.0.49898
+%define release %mkrel 1
 
 %define major	0
 %define libname %mklibname %{name} %major
@@ -45,7 +45,6 @@ Provides: %name-devel = %{version}-%{release}
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %configure2_5x 
@@ -69,15 +68,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc AUTHORS COPYING README
-%{_bindir}/%{name}_run
-%{_bindir}/elementary_quicklaunch
-%{_bindir}/elementary_testql
-%{_bindir}/elementary_test
+%{_bindir}/*
 %{_libdir}/elementary
-%{_datadir}/applications/%{name}_test.desktop
-%{_datadir}/%name/images/*
-%{_datadir}/%name/themes/default.edj
-%{_datadir}/%name/objects/test.edj
+%{_libdir}/edje/elm.*
+%{_datadir}/applications/*.desktop
+%{_datadir}/%name
 %{_iconsdir}/%name.png
 
 %files -n %libname
