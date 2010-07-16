@@ -19,6 +19,7 @@ BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	edje-devel >= 0.9.93.063, edje >= 0.9.93.063
 BuildRequires:	e_dbus-devel efreet-devel
 BuildRequires:	embryo
+BuildRequires:	eet
 
 %description
 a basic widget set that is easy to use based on EFL for mobile
