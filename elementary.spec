@@ -1,5 +1,5 @@
 %define	name	elementary
-%define version 0.7.0.49898
+%define version 0.7.0.52995
 %define release %mkrel 1
 
 %define major	0
@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING README
 %{_bindir}/*
 %{_libdir}/elementary
-%{_libdir}/edje/elm.*
+%{_libdir}/edje/modules/elm
 %{_datadir}/applications/*.desktop
 %{_datadir}/%name
 %{_iconsdir}/%name.png
@@ -86,5 +86,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
-%{_includedir}/%name/*.h
-%{_includedir}/Elementary.h
+%{_includedir}/*
