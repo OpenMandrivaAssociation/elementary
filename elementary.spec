@@ -1,24 +1,40 @@
-%define	name	elementary
-%define version 0.7.0.55225
-%define release %mkrel 1
+#Tarball of svn snapshot created as follows...
+#Cut and paste in a shell after removing initial #
 
-%define major	0
-%define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} -d
+#svn co http://svn.enlightenment.org/svn/e/trunk/elementary elementary; \
+#cd elementary; \
+#SVNREV=$(LANGUAGE=C svn info | grep "Last Changed Rev:" | cut -d: -f 2 | sed "s@ @@"); \
+#v_maj=$(cat configure.ac | grep 'm4_define(\[v_maj\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#v_min=$(cat configure.ac | grep 'm4_define(\[v_min\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#v_mic=$(cat configure.ac | grep 'm4_define(\[v_mic\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#PKG_VERSION=$v_maj.$v_min.$v_mic.$SVNREV; \
+#cd ..; \
+#tar -Jcf elementary-$PKG_VERSION.tar.xz elementary/ --exclude .svn --exclude .*ignore
 
-Summary: 	Basic widget set that is easy to use based on EFL for mobile touch-screen devices
-Name: 		%{name}
-Version: 	%{version}
-Release: 	%{release}
-License: 	BSD
-Group: 		Graphical desktop/Enlightenment
-URL: 		http://www.enlightenment.org/
-Source: 	http://download.enlightenment.org/snapshots/TMP/st/%{name}-%{version}.tar.bz2
-BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	edje-devel >= 1.0.0, edje >= 1.0.0
-BuildRequires:	e_dbus-devel efreet-devel
-BuildRequires:	embryo
+
+%define svndate	20120103
+%define svnrev	66796
+
+%define	major	0
+%define	libname %mklibname %{name} %{major}
+%define	develname %mklibname %{name} -d
+
+Name:		elementary
+Version:	0.8.0.%{svnrev}
+Release:	0.%{svndate}.1
+Summary:	Basic widget set that is easy to use based on EFL for mobile touch-screen devices
+Group:		Graphical desktop/Enlightenment
+License:	BSD
+URL:		http://www.enlightenment.org/
+Source0: 	%{name}-%{version}.%{svnrev}.tar.xz
+
+BuildRequires:	edje
 BuildRequires:	eet
+BuildRequires:	embryo
+Buildrequires:  gettext-devel
+BuildRequires:	pkgconfig(edbus)
+BuildRequires:	pkgconfig(edje)
+BuildRequires:	pkgconfig(efreet)
 
 %description
 a basic widget set that is easy to use based on EFL for mobile
@@ -26,63 +42,63 @@ touch-screen devices
 
 This package is part of the Enlightenment DR17 desktop shell.
 
-%package -n %libname
-Summary: Libraries for the %{name} package
-Group: System/Libraries
+%package -n %{libname}
+Summary:	Libraries for the %{name} package
+Group:		System/Libraries
 
-%description -n %libname
+%description -n %{libname}
 Libraries for %{name}
 
-%package -n %libnamedev
-Summary: Headers and development libraries from %{name}
-Group: Development/Other
-Requires: %libname = %{version}-%{release}
-Provides: lib%{name}-devel = %{version}-%{release}
-Provides: %name-devel = %{version}-%{release}
+%package -n %{develname}
+Summary:	Headers and development libraries from %{name}
+Group:		Development/Other
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %libnamedev
+%description -n %{develname}
 %{name} development headers and libraries.
 
 %prep
-%setup -q
+%setup -qn %{name}
 
 %build
-%configure2_5x 
+NOCONFIGURE=yes ./autogen.sh
+%configure2_5x \
+	--disable-static
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
+%find_lang %{name}
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
-%files
-%defattr(-,root,root)
+%files %{name}.lang
 %doc AUTHORS COPYING README
-%{_bindir}/*
-%{_libdir}/elementary
-%{_libdir}/edje/modules/elm
-%{_datadir}/applications/*.desktop
-%{_datadir}/%name
-%{_iconsdir}/%name.png
+%{_bindir}/%{name}_run
+%{_bindir}/elementary_config
+%{_bindir}/elementary_quicklaunch
+%{_libdir}/edje/modules/elm/linux-*/module.so
+%{_datadir}/applications/%{name}_config.desktop
+#{_datadir}/locale/*/LC_MESSAGES/*.mo
+%{_datadir}/%{name}/config/*
+%{_datadir}/%{name}/edje_externals/*
+%{_datadir}/%{name}/images/*
+%{_datadir}/%{name}/themes/default.edj
+%{_datadir}/%{name}/themes/default-desktop.edj
+%{_datadir}/%{name}/objects/*
+%{_iconsdir}/%{name}.png
 
-%files -n %libname
-%defattr(-,root,root)
+%files -n %{libname}
 %{_libdir}/*.so.%{major}*
 
-%files -n %libnamedev
-%defattr(-,root,root)
+%files -n %{develname}
+%{_bindir}/elementary_testql
+%{_bindir}/elementary_test
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-%{_libdir}/*.a
-%{_libdir}/*.la
-%{_includedir}/*
+%{_libdir}/elementary/modules/test_entry/linux*
+%{_datadir}/applications/%{name}_test.desktop
+%{_includedir}/%{name}*
+
