@@ -22,15 +22,16 @@
 Name:		elementary
 Version:	0.8.0.%{svnrev}
 Release:	0.%{svndate}.1
-Summary:	Basic widget set that is easy to use based on EFL for mobile touch-screen devices
+Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Group:		Graphical desktop/Enlightenment
 License:	BSD
 URL:		http://www.enlightenment.org/
-Source0: 	%{name}-%{version}.%{svnrev}.tar.xz
+Source0: 	%{name}-%{version}.tar.xz
 
 BuildRequires:	edje
 BuildRequires:	eet
 BuildRequires:	embryo
+BuildRequires:	evas
 Buildrequires:  gettext-devel
 BuildRequires:	pkgconfig(edbus)
 BuildRequires:	pkgconfig(edje)
@@ -74,14 +75,14 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %find_lang %{name}
 
-%files %{name}.lang
+%files -f %{name}.lang
 %doc AUTHORS COPYING README
 %{_bindir}/%{name}_run
 %{_bindir}/elementary_config
 %{_bindir}/elementary_quicklaunch
 %{_libdir}/edje/modules/elm/linux-*/module.so
+%{_libdir}/elementary/modules/access_output/linux*
 %{_datadir}/applications/%{name}_config.desktop
-#{_datadir}/locale/*/LC_MESSAGES/*.mo
 %{_datadir}/%{name}/config/*
 %{_datadir}/%{name}/edje_externals/*
 %{_datadir}/%{name}/images/*
@@ -99,6 +100,7 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
 %{_libdir}/elementary/modules/test_entry/linux*
+%{_libdir}/elementary/modules/test_map/linux*
 %{_datadir}/applications/%{name}_test.desktop
 %{_includedir}/%{name}*
 
