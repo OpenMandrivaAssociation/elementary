@@ -101,6 +101,7 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_libdir}/*.so
 %{_libdir}/elementary/modules/test_entry/linux*
 %{_libdir}/elementary/modules/test_map/linux*
+%{_libdir}/elementary/modules/datetime_input_ctxpopup/linux*
 %{_datadir}/applications/%{name}_test.desktop
 %{_includedir}/%{name}*
 
