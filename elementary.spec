@@ -12,21 +12,21 @@
 #tar -Jcf elementary-$PKG_VERSION.tar.xz elementary/ --exclude .svn --exclude .*ignore
 
 
-%define svndate	20120103
-%define svnrev	66796
+#% define svndate	20120103
+#% define svnrev	66796
 
-%define	major	0
+%define	major	1
 %define	libname %mklibname %{name} %{major}
 %define	develname %mklibname %{name} -d
 
 Name:		elementary
-Version:	0.8.0.%{svnrev}
-Release:	0.%{svndate}.1
+Version:	1.0.1
+Release:	1
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Group:		Graphical desktop/Enlightenment
 License:	BSD
 URL:		http://www.enlightenment.org/
-Source0: 	%{name}-%{version}.tar.xz
+Source0: 	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
 
 BuildRequires:	edje
 BuildRequires:	eet
@@ -60,7 +60,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 %{name} development headers and libraries.
 
 %prep
-%setup -qn %{name}
+%setup -q
 
 %build
 NOCONFIGURE=yes ./autogen.sh
