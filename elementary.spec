@@ -20,25 +20,43 @@
 %define	develname %mklibname %{name} -d
 
 Name:		elementary
-Version:	1.0.1
+Version:	1.7.3
 Release:	1
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Group:		Graphical desktop/Enlightenment
 License:	BSD
 URL:		http://www.enlightenment.org/
-Source0: 	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
 
+BuildRequires:	doxygen
+BuildRequires:	gettext-devel
 BuildRequires:	edje
 BuildRequires:	eet
 BuildRequires:	embryo
-BuildRequires:	evas
-Buildrequires:  gettext-devel
-BuildRequires:	pkgconfig(edbus)
-BuildRequires:	pkgconfig(edje)
-BuildRequires:	pkgconfig(efreet)
+BuildRequires:	pkgconfig(ecore) >= 1.7.1
+BuildRequires:	pkgconfig(ecore-con) >= 1.7.1
+BuildRequires:	pkgconfig(ecore-evas) >= 1.7.1
+BuildRequires:	pkgconfig(ecore-file) >= 1.7.1
+BuildRequires:	pkgconfig(ecore-imf) >= 1.7.1
+BuildRequires:	pkgconfig(edbus) >= 1.7.1
+BuildRequires:	pkgconfig(edje) >= 1.7.1
+BuildRequires:	pkgconfig(eet) >= 1.7.1
+BuildRequires:	pkgconfig(eina) >= 1.7.1
+BuildRequires:	pkgconfig(eio) >= 1.7.1
+BuildRequires:	pkgconfig(efreet) >= 1.7.1
+BuildRequires:	pkgconfig(efreet-mime) >= 1.7.1
+BuildRequires:	pkgconfig(efreet-trash) >= 1.7.1
+BuildRequires:	pkgconfig(evas) >= 1.7.1
+BuildRequires:	pkgconfig(edje) >= 1.7.1
+BuildRequires:	evas_generic_loaders
+
+# Extra stuff
+BuildRequires:	pkgconfig(emotion)
+BuildRequires:	pkgconfig(ethumb_client)
+#BuildRequires:	pkgconfig(eweather)
 
 %description
-a basic widget set that is easy to use based on EFL for mobile
+A basic widget set that is easy to use based on EFL for mobile
 touch-screen devices
 
 This package is part of the Enlightenment DR17 desktop shell.
@@ -54,6 +72,7 @@ Libraries for %{name}
 Summary:	Headers and development libraries from %{name}
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
+Requires:	pkgconfig(eweather)
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
@@ -63,15 +82,13 @@ Provides:	%{name}-devel = %{version}-%{release}
 %setup -q
 
 %build
-NOCONFIGURE=yes ./autogen.sh
+#NOCONFIGURE=yes ./autogen.sh
 %configure2_5x \
 	--disable-static
-%make
+make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %find_lang %{name}
 
