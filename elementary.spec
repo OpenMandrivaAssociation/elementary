@@ -1,32 +1,15 @@
-#Tarball of svn snapshot created as follows...
-#Cut and paste in a shell after removing initial #
-
-#svn co http://svn.enlightenment.org/svn/e/trunk/elementary elementary; \
-#cd elementary; \
-#SVNREV=$(LANGUAGE=C svn info | grep "Last Changed Rev:" | cut -d: -f 2 | sed "s@ @@"); \
-#v_maj=$(cat configure.ac | grep 'm4_define(\[v_maj\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#v_min=$(cat configure.ac | grep 'm4_define(\[v_min\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#v_mic=$(cat configure.ac | grep 'm4_define(\[v_mic\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#PKG_VERSION=$v_maj.$v_min.$v_mic.$SVNREV; \
-#cd ..; \
-#tar -Jcf elementary-$PKG_VERSION.tar.xz elementary/ --exclude .svn --exclude .*ignore
-
-
-#% define svndate	20120103
-#% define svnrev	66796
-
 %define	major	1
 %define	libname %mklibname %{name} %{major}
-%define	develname %mklibname %{name} -d
+%define	devname %mklibname %{name} -d
 
 Name:		elementary
-Version:	1.7.3
+Version:	1.7.5
 Release:	1
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Group:		Graphical desktop/Enlightenment
 License:	BSD
 URL:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
+Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
 
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
@@ -68,21 +51,20 @@ Group:		System/Libraries
 %description -n %{libname}
 Libraries for %{name}
 
-%package -n %{develname}
+%package -n %{devname}
 Summary:	Headers and development libraries from %{name}
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
 Requires:	pkgconfig(eweather)
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 %{name} development headers and libraries.
 
 %prep
 %setup -q
 
 %build
-#NOCONFIGURE=yes ./autogen.sh
 %configure2_5x \
 	--disable-static
 make
@@ -111,7 +93,7 @@ make
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
 
-%files -n %{develname}
+%files -n %{devname}
 %{_bindir}/elementary_testql
 %{_bindir}/elementary_test
 %{_libdir}/pkgconfig/*
