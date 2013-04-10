@@ -3,13 +3,13 @@
 %define	devname %mklibname %{name} -d
 
 Name:		elementary
-Version:	1.7.5
+Version:	1.7.6
 Release:	1
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Group:		Graphical desktop/Enlightenment
 License:	BSD
 URL:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.gz
 
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
