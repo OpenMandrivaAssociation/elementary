@@ -1,16 +1,15 @@
-%define	major	1
-%define	libname %mklibname %{name} %{major}
-%define	devname %mklibname %{name} -d
+%define major   1
+%define libname %mklibname %{name} %{major}
+%define devname %mklibname %{name} -d
 
-Name:		elementary
-Version:	1.7.7
-Release:	1
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
+Name:		elementary
+Version:	1.7.8
+Release:	1
+License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
-License:	BSD
-URL:		http://www.enlightenment.org/
+Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
-
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
 BuildRequires:	edje
@@ -54,9 +53,9 @@ Libraries for %{name}
 %package -n %{devname}
 Summary:	Headers and development libraries from %{name}
 Group:		Development/Other
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
 Requires:	pkgconfig(eweather)
-Provides:	%{name}-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 %{name} development headers and libraries.
