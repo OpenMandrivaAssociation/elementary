@@ -48,16 +48,18 @@ This package is part of the Enlightenment DR17 desktop shell.
 %files -f %{name}.lang
 %doc AUTHORS COPYING README
 %{_bindir}/%{name}_run
+%{_bindir}/elementary_codegen
 %{_bindir}/elementary_config
 %{_bindir}/elementary_quicklaunch
+%{_bindir}/elm_prefs_cc
 %{_libdir}/edje/modules/elm/linux-*/module.so
 %{_libdir}/elementary/modules/access_output/linux*
+%{_libdir}/elementary/modules/prefs/linux*
 %{_datadir}/applications/%{name}_config.desktop
 %{_datadir}/%{name}/config/*
 %{_datadir}/%{name}/edje_externals/*
 %{_datadir}/%{name}/images/*
 %{_datadir}/%{name}/themes/default.edj
-%{_datadir}/%{name}/themes/default-desktop.edj
 %{_datadir}/%{name}/objects/*
 %{_iconsdir}/%{name}.png
 
@@ -79,15 +81,14 @@ Libraries for %{name}.
 Summary:	Headers and development libraries from %{name}
 Group:		Development/Other
 Requires:	%{libname} = %{EVRD}
-Requires:	pkgconfig(eweather)
 Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 %{name} development headers and libraries.
 
 %files -n %{devname}
-%{_bindir}/elementary_testql
 %{_bindir}/elementary_test
+%{_libdir}/cmake/Elementary/
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
 %{_libdir}/elementary/modules/test_entry/linux*
