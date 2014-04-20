@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   elementary-1.8.4.tar.bz2: 4d3ea32c2df462300d4e4146ac3ea7ba54176bcb
+sources:
+  elementary-1.9.3.tar.gz: 19f708c2e6c3ae40cf233e135a8936111d7bda42

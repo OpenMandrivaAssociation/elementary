@@ -4,12 +4,12 @@
 
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
-Version:	1.8.4
+Version:	1.9.3
 Release:	1
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.gz
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
 BuildRequires:	edje
