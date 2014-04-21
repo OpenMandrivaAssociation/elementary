@@ -52,9 +52,9 @@ This package is part of the Enlightenment DR17 desktop shell.
 %{_bindir}/elementary_config
 %{_bindir}/elementary_quicklaunch
 %{_bindir}/elm_prefs_cc
-%{_libdir}/edje/modules/elm/linux-*/module.so
-%{_libdir}/elementary/modules/access_output/linux*
-%{_libdir}/elementary/modules/prefs/linux*
+%{_libdir}/edje/modules/elm/v*/module.so
+%{_libdir}/elementary/modules/access_output/v*
+%{_libdir}/elementary/modules/prefs/v*
 %{_datadir}/applications/%{name}_config.desktop
 %{_datadir}/%{name}/config/*
 %{_datadir}/%{name}/edje_externals/*
@@ -91,9 +91,9 @@ Provides:	%{name}-devel = %{EVRD}
 %{_libdir}/cmake/Elementary/
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-%{_libdir}/elementary/modules/test_entry/linux*
-%{_libdir}/elementary/modules/test_map/linux*
-%{_libdir}/elementary/modules/datetime_input_ctxpopup/linux*
+%{_libdir}/elementary/modules/test_entry/v*
+%{_libdir}/elementary/modules/test_map/v*
+%{_libdir}/elementary/modules/datetime_input_ctxpopup/v*
 %{_datadir}/applications/%{name}_test.desktop
 %{_includedir}/%{name}*
 
