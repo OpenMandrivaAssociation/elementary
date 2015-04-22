@@ -34,6 +34,10 @@ BuildRequires:	pkgconfig(eo) >= 1.11.0
 BuildRequires:	pkgconfig(evas) >= 1.11.0
 BuildRequires:	evas_generic_loaders
 BuildRequires:	pkgconfig(efl)
+BuildRequires:	pkgconfig(eolian)
+
+
+
 BuildRequires:	desktop-file-utils
 # Extra stuff
 BuildRequires:	pkgconfig(emotion)
