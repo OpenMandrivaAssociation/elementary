@@ -12,26 +12,26 @@ Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
-BuildRequires:	edje
-BuildRequires:	eet
-BuildRequires:	embryo
-BuildRequires:	pkgconfig(ecore) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-imf) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.8.0
-BuildRequires:	pkgconfig(eldbus) >= 1.8.0
-BuildRequires:	pkgconfig(edje) >= 1.8.0
-BuildRequires:	pkgconfig(eet) >= 1.8.0
-BuildRequires:	pkgconfig(efreet) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-mime) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.8.0
-BuildRequires:	pkgconfig(eina) >= 1.8.0
-BuildRequires:	pkgconfig(eio) >= 1.8.0
-BuildRequires:	pkgconfig(eldbus) >= 1.8.0
-BuildRequires:	pkgconfig(eo) >= 1.8.0
-BuildRequires:	pkgconfig(evas) >= 1.8.0
+BuildRequires:	pkgconfig(edje) >= 1.11.0
+BuildRequires:	pkgconfig(eet) >=1.11.0
+BuildRequires:	pkgconfig(embryo) >=1.11.0
+BuildRequires:	pkgconfig(ecore) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-evas) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-imf) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-input) >= 1.11.0
+BuildRequires:	pkgconfig(eldbus) >= 1.11.0
+BuildRequires:	pkgconfig(edje) >= 1.11.0
+BuildRequires:	pkgconfig(eet) >= 1.11.0
+BuildRequires:	pkgconfig(efreet) >= 1.11.0
+BuildRequires:	pkgconfig(efreet-mime) >= 1.11.0
+BuildRequires:	pkgconfig(efreet-trash) >= 1.11.0
+BuildRequires:	pkgconfig(eina) >= 1.11.0
+BuildRequires:	pkgconfig(eio) >= 1.11.0
+BuildRequires:	pkgconfig(eldbus) >= 1.11.0
+BuildRequires:	pkgconfig(eo) >= 1.11.0
+BuildRequires:	pkgconfig(evas) >= 1.11.0
 BuildRequires:	evas_generic_loaders
 
 # Extra stuff
