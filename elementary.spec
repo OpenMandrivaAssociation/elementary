@@ -33,7 +33,7 @@ BuildRequires:	pkgconfig(eldbus) >= 1.11.0
 BuildRequires:	pkgconfig(eo) >= 1.11.0
 BuildRequires:	pkgconfig(evas) >= 1.11.0
 BuildRequires:	evas_generic_loaders
-
+BuildRequires:	desktop-file-utils
 # Extra stuff
 BuildRequires:	pkgconfig(emotion)
 BuildRequires:	pkgconfig(ethumb_client)
@@ -103,18 +103,26 @@ Provides:	%{name}-devel = %{EVRD}
 %prep
 %setup -q
 
-# Symbianflo
-autoreconf -fiv
-
 %build
-%configure2_5x \
-	--disable-static
+%configure --disable-rpath --disable-doc --disable-static --disable-elementary-test
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' libtool
 
-%make
-#######
+%make  V=1
+
 
 %install
 %makeinstall_std
+
+find %{buildroot} -name '*.la' -delete
+find %{buildroot} -name '*.a' -delete
+find %{buildroot} -name 'elementary_testql.so' -delete
+find %{buildroot} -name 'elementary_test.desktop' -delete
+find %{buildroot} -name 'elementary_testql' -delete
+
+desktop-file-install                                                                    \
+        --delete-original                                                               \
+        --dir=%{buildroot}%{_datadir}/applications                                      \
+%{buildroot}%{_datadir}/applications/*.desktop
 
 %find_lang %{name}
 
