@@ -4,12 +4,12 @@
 
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
-Version:	1.9.3
+Version:	1.13.2
 Release:	1
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
 BuildRequires:	edje
@@ -95,6 +95,7 @@ Provides:	%{name}-devel = %{EVRD}
 %{_libdir}/elementary/modules/test_map/v*
 %{_libdir}/elementary/modules/datetime_input_ctxpopup/v*
 %{_datadir}/applications/%{name}_test.desktop
+%{_datadir}/eolian/include/elementary-1/*.eo
 %{_includedir}/%{name}*
 
 #----------------------------------------------------------------------------
@@ -103,7 +104,7 @@ Provides:	%{name}-devel = %{EVRD}
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 %make
 
