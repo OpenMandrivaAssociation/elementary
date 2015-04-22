@@ -103,12 +103,15 @@ Provides:	%{name}-devel = %{EVRD}
 %prep
 %setup -q
 
+# Symbianflo
+autoreconf -fiv
+
 %build
 %configure2_5x \
 	--disable-static
-#make absolutely sure there is only a single make. I've been here before
 
-make
+%make
+#######
 
 %install
 %makeinstall_std
