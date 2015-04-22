@@ -106,7 +106,9 @@ Provides:	%{name}-devel = %{EVRD}
 %build
 %configure2_5x \
 	--disable-static
-%make -j1
+#make absolutely sure there is only a single make. I've been here before
+
+make
 
 %install
 %makeinstall_std
