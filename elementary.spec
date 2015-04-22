@@ -106,7 +106,7 @@ Provides:	%{name}-devel = %{EVRD}
 %build
 %configure2_5x \
 	--disable-static
-%make
+%make -j1
 
 %install
 %makeinstall_std
