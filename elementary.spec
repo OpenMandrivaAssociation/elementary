@@ -4,34 +4,34 @@
 
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
-Version:	1.10.2
-Release:	2
+Version:	1.13.2
+Release:	1
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
 BuildRequires:	edje
 BuildRequires:	eet
 BuildRequires:	embryo
-BuildRequires:	eolian
-BuildRequires:	pkgconfig(ecore)
-BuildRequires:	pkgconfig(ecore-con)
-BuildRequires:	pkgconfig(ecore-evas)
-BuildRequires:	pkgconfig(ecore-file)
-BuildRequires:	pkgconfig(ecore-imf)
-BuildRequires:	pkgconfig(edje)
-BuildRequires:	pkgconfig(eet)
-BuildRequires:	pkgconfig(efreet)
-BuildRequires:	pkgconfig(efreet-mime)
-BuildRequires:	pkgconfig(efreet-trash)
-BuildRequires:	pkgconfig(eina)
-BuildRequires:	pkgconfig(eio)
-BuildRequires:	pkgconfig(eldbus)
-BuildRequires:	pkgconfig(eo)
-BuildRequires:	pkgconfig(eolian)
-BuildRequires:	pkgconfig(evas)
+BuildRequires:	pkgconfig(ecore) >= 1.8.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.8.0
+BuildRequires:	pkgconfig(ecore-evas) >= 1.8.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.8.0
+BuildRequires:	pkgconfig(ecore-imf) >= 1.8.0
+BuildRequires:	pkgconfig(ecore-input) >= 1.8.0
+BuildRequires:	pkgconfig(eldbus) >= 1.8.0
+BuildRequires:	pkgconfig(edje) >= 1.8.0
+BuildRequires:	pkgconfig(eet) >= 1.8.0
+BuildRequires:	pkgconfig(efreet) >= 1.8.0
+BuildRequires:	pkgconfig(efreet-mime) >= 1.8.0
+BuildRequires:	pkgconfig(efreet-trash) >= 1.8.0
+BuildRequires:	pkgconfig(eina) >= 1.8.0
+BuildRequires:	pkgconfig(eio) >= 1.8.0
+BuildRequires:	pkgconfig(eldbus) >= 1.8.0
+BuildRequires:	pkgconfig(eo) >= 1.8.0
+BuildRequires:	pkgconfig(evas) >= 1.8.0
 BuildRequires:	evas_generic_loaders
 
 # Extra stuff
@@ -47,15 +47,14 @@ This package is part of the Enlightenment DR17 desktop shell.
 
 %files -f %{name}.lang
 %doc AUTHORS COPYING README
-%{_bindir}/elementary_run
+%{_bindir}/%{name}_run
 %{_bindir}/elementary_codegen
 %{_bindir}/elementary_config
 %{_bindir}/elementary_quicklaunch
 %{_bindir}/elm_prefs_cc
-%{_libdir}/edje/modules/elm/v-*/module.so
-%{_libdir}/elementary/modules/access_output/v-*
-%{_libdir}/elementary/modules/datetime_input_ctxpopup/v-*
-%{_libdir}/elementary/modules/prefs/v-*
+%{_libdir}/edje/modules/elm/v*/module.so
+%{_libdir}/elementary/modules/access_output/v*
+%{_libdir}/elementary/modules/prefs/v*
 %{_datadir}/applications/%{name}_config.desktop
 %{_datadir}/%{name}/config/*
 %{_datadir}/%{name}/edje_externals/*
@@ -74,7 +73,7 @@ Group:		System/Libraries
 Libraries for %{name}.
 
 %files -n %{libname}
-%{_libdir}/libelementary.so.%{major}*
+%{_libdir}/*.so.%{major}*
 
 #----------------------------------------------------------------------------
 
@@ -89,15 +88,14 @@ Provides:	%{name}-devel = %{EVRD}
 
 %files -n %{devname}
 %{_bindir}/elementary_test
-%dir %{_libdir}/cmake/Elementary
-%{_libdir}/cmake/Elementary/*.cmake
-%{_libdir}/pkgconfig/*.pc
-%{_libdir}/libelementary.so
-%{_libdir}/elementary/modules/test_entry/v-*
-%{_libdir}/elementary/modules/test_map/v-*
+%{_libdir}/cmake/Elementary/
+%{_libdir}/pkgconfig/*
+%{_libdir}/*.so
+%{_libdir}/elementary/modules/test_entry/v*
+%{_libdir}/elementary/modules/test_map/v*
+%{_libdir}/elementary/modules/datetime_input_ctxpopup/v*
 %{_datadir}/applications/%{name}_test.desktop
-%dir %{_datadir}/eolian/include/elementary-1
-%{_datadir}/eolian/include/elementary-1/*
+%{_datadir}/eolian/include/elementary-1/*.eo
 %{_includedir}/%{name}*
 
 #----------------------------------------------------------------------------
@@ -106,9 +104,9 @@ Provides:	%{name}-devel = %{EVRD}
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
-make
+%make
 
 %install
 %makeinstall_std
