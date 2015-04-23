@@ -1,2 +1,2 @@
 # EVRD for devel should work , but just don't
-addfilter("E: no-dependency-on")
+addFilter("E: no-dependency-on")
