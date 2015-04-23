@@ -109,25 +109,12 @@ Provides:	%{name}-devel = %{EVRD}
 %setup -q
 
 %build
-%configure --disable-rpath --disable-doc --disable-static 
-sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' libtool
+%configure2_5x --disable-static 
 
-%make  V=1
-
+%make  
 
 %install
 %makeinstall_std
-
-find %{buildroot} -name '*.la' -delete
-find %{buildroot} -name '*.a' -delete
-find %{buildroot} -name 'elementary_testql.so' -delete
-find %{buildroot} -name 'elementary_test.desktop' -delete
-find %{buildroot} -name 'elementary_testql' -delete
-
-desktop-file-install                                                                    \
-        --delete-original                                                               \
-        --dir=%{buildroot}%{_datadir}/applications                                      \
-%{buildroot}%{_datadir}/applications/*.desktop
 
 %find_lang %{name}
 
