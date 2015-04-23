@@ -5,7 +5,7 @@
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
 Version:	1.13.2
-Release:	0.1
+Release:	0.2
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -78,6 +78,7 @@ Group:		System/Libraries
 Libraries for %{name}.
 
 %files -n %{libname}
+%doc AUTHORS COPYING README
 %{_libdir}/*.so.%{major}*
 
 #----------------------------------------------------------------------------
@@ -86,12 +87,18 @@ Libraries for %{name}.
 Summary:	Headers and development libraries from %{name}
 Group:		Development/Other
 Requires:	%{libname} = %{EVRD}
+# oma's linting just suck...
+Requires:	%{_lib}elementary
+Requires:	%{_lib}elementary-libs
+Requires:	lib%{_lib}elementary
+
 Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 %{name} development headers and libraries.
 
 %files -n %{devname}
+%doc AUTHORS COPYING README
 %{_bindir}/elementary_test
 %{_libdir}/cmake/Elementary/
 %{_libdir}/pkgconfig/*
@@ -115,6 +122,10 @@ Provides:	%{name}-devel = %{EVRD}
 
 %install
 %makeinstall_std
+
+find %{buildroot} -size 0 -delete
+
+
 
 %find_lang %{name}
 
