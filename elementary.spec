@@ -109,7 +109,7 @@ Provides:	%{name}-devel = %{EVRD}
 %setup -q
 
 %build
-%configure --disable-rpath --disable-doc --disable-static --disable-elementary-test
+%configure --disable-rpath --disable-doc --disable-static 
 sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' libtool
 
 %make  V=1
