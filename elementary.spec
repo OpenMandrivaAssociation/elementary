@@ -88,7 +88,7 @@ Summary:	Headers and development libraries from %{name}
 Group:		Development/Other
 Requires:	%{libname} = %{EVRD}
 # oma's linting just suck...
-Requires:	%{_lib}elementary
+Requires:	%{_lib}elementary%{major}
 Requires:	%{_lib}elementary-libs
 Requires:	lib%{_lib}elementary
 
