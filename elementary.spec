@@ -104,7 +104,7 @@ Provides:	%{name}-devel = %{EVRD}
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 %make
 
