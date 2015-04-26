@@ -108,7 +108,7 @@ Provides:	%{name}-devel = %{EVRD}
 %build
 %configure \
 	--disable-static
-%make
+make all
 
 %install
 %makeinstall_std
