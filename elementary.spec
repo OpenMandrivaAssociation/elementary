@@ -33,7 +33,7 @@ BuildRequires:	pkgconfig(eldbus) >= 1.8.0
 BuildRequires:	pkgconfig(eo) >= 1.8.0
 BuildRequires:	pkgconfig(evas) >= 1.8.0
 BuildRequires:	pkgconfig(libsystemd-journal)
-BuildRequires:	pkgconfig(libsystemd-daemom)
+BuildRequires:	pkgconfig(libsystemd-daemon)
 BuildRequires:	evas_generic_loaders
 
 # Extra stuff
