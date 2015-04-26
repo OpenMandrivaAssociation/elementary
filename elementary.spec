@@ -37,6 +37,8 @@ BuildRequires:	pkgconfig(libsystemd-daemon)
 BuildRequires:	evas_generic_loaders
 BuildRequires:  pkgconfig(efl)
 BuildRequires:  pkgconfig(eolian)
+BuildRequires:  pkgconfig(wayland-server)
+BuildRequires:  pkgconfig(wayland-egl)
 BuildRequires:	desktop-file-utils
 
 # Extra stuff
