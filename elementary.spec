@@ -35,6 +35,9 @@ BuildRequires:	pkgconfig(evas) >= 1.8.0
 BuildRequires:	pkgconfig(libsystemd-journal)
 BuildRequires:	pkgconfig(libsystemd-daemon)
 BuildRequires:	evas_generic_loaders
+BuildRequires:  pkgconfig(efl)
+BuildRequires:  pkgconfig(eolian)
+BuildRequires:	desktop-file-utils
 
 # Extra stuff
 BuildRequires:	pkgconfig(emotion)
