@@ -109,7 +109,7 @@ Provides:	%{name}-devel = %{EVRD}
 %setup -q
 
 %build
-%configure \
+%configure CC=gcc BUILD_CC=gcc TARGET_CC=gcc \
 	--disable-static
 make all
 
