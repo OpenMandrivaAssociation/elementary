@@ -112,8 +112,7 @@ Provides:	%{name}-devel = %{EVRD}
 %setup -q
 
 %build
-%configure CC=gcc BUILD_CC=gcc TARGET_CC=gcc LIBS=-lwayland-client \
-	--enable-ecore-wayland
+%configure CC=gcc BUILD_CC=gcc TARGET_CC=gcc \
 	--disable-static
 make all
 
