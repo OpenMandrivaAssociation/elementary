@@ -1,0 +1,11 @@
+--- elementary-1.13.2/src/lib/elm_index.h	2015-05-03 13:58:53.560082962 +0100
++++ elementary-1.13.2/src/lib/elm_index.h~	2015-05-03 13:51:36.788527646 +0100
+@@ -62,7 +62,7 @@
+  * @{
+  */
+ 
+-#include <elm_index_common.h>
++//#include <elm_index_common.h>
+ #ifdef EFL_EO_API_SUPPORT
+ #include <elm_index_eo.h>
+ #endif

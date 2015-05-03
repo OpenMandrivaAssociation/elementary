@@ -1,0 +1,11 @@
+--- elementary-1.13.2/src/lib/elm_segment_control.h~	2014-11-27 07:59:34.000000000 +0000
++++ elementary-1.13.2/src/lib/elm_segment_control.h	2015-05-03 23:30:28.669138258 +0100
+@@ -61,7 +61,7 @@
+  * @{
+  */
+ 
+-#include "elm_segment_control_common.h"
++//#include "elm_segment_control_common.h"
+ #ifdef EFL_EO_API_SUPPORT
+ #include "elm_segment_control_eo.h"
+ #endif
