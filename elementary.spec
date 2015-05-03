@@ -5,13 +5,14 @@
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
 Version:	1.13.2
-Release:	1.1
+Release:	1.2
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
-
+Patch0:		include-index-h.patch
+Patch1:		include-menu-h.patch
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(edje) >= 1.11.0
@@ -111,6 +112,7 @@ Provides:	%{name}-devel = %{EVRD}
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %configure2_5x --disable-static 
