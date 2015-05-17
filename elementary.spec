@@ -123,7 +123,7 @@ Provides:	%{name}-devel = %{EVRD}
 %install
 %makeinstall_std
 
-find %{buildroot} -size 0 -delete
+#find %{buildroot} -size 0 -delete
 
 
 
