@@ -11,9 +11,9 @@ Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.xz
 Source100:      %{name}.rpmlintrc
-Patch0:         include-index-h.patch
-Patch1:         include-menu-h.patch
-Patch2:		include-segment-h.patch
+#Patch0:         include-index-h.patch
+#Patch1:         include-menu-h.patch
+#Patch2:	 include-segment-h.patch
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
 #BuildRequires:	edje
@@ -114,7 +114,7 @@ Provides:	%{name}-devel = %{EVRD}
 
 %prep
 %setup -q
-%apply_patches
+#%apply_patches
 
 
 %build
