@@ -4,8 +4,8 @@
 
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
-Version:	1.13.2
-Release:	3
+Version:	1.17.0
+Release:	0
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -16,31 +16,31 @@ Patch1:         include-menu-h.patch
 Patch2:		include-segment-h.patch
 BuildRequires:	doxygen
 BuildRequires:	gettext-devel
-BuildRequires:	edje
-BuildRequires:	eet
-BuildRequires:	embryo
-BuildRequires:	pkgconfig(ecore) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-imf) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.8.0
-BuildRequires:	pkgconfig(eldbus) >= 1.8.0
-BuildRequires:	pkgconfig(edje) >= 1.8.0
-BuildRequires:	pkgconfig(eet) >= 1.8.0
-BuildRequires:	pkgconfig(efreet) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-mime) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.8.0
-BuildRequires:	pkgconfig(eina) >= 1.8.0
-BuildRequires:	pkgconfig(eio) >= 1.8.0
-BuildRequires:	pkgconfig(eldbus) >= 1.8.0
-BuildRequires:	pkgconfig(eo) >= 1.8.0
-BuildRequires:	pkgconfig(evas) >= 1.8.0
+#BuildRequires:	edje
+#BuildRequires:	eet
+#BuildRequires:	embryo
+#BuildRequires:	pkgconfig(ecore) >= 1.8.0
+#BuildRequires:	pkgconfig(ecore-con) >= 1.8.0
+#BuildRequires:	pkgconfig(ecore-evas) >= 1.8.0
+#BuildRequires:	pkgconfig(ecore-file) >= 1.8.0
+#BuildRequires:	pkgconfig(ecore-imf) >= 1.8.0
+#BuildRequires:	pkgconfig(ecore-input) >= 1.8.0
+#BuildRequires:	pkgconfig(eldbus) >= 1.8.0
+#BuildRequires:	pkgconfig(edje) >= 1.8.0
+#BuildRequires:	pkgconfig(eet) >= 1.8.0
+#BuildRequires:	pkgconfig(efreet) >= 1.8.0
+#BuildRequires:	pkgconfig(efreet-mime) >= 1.8.0
+#BuildRequires:	pkgconfig(efreet-trash) >= 1.8.0
+#BuildRequires:	pkgconfig(eina) >= 1.8.0
+#BuildRequires:	pkgconfig(eio) >= 1.8.0
+#BuildRequires:	pkgconfig(eldbus) >= 1.8.0
+#BuildRequires:	pkgconfig(eo) >= 1.8.0
+#BuildRequires:	pkgconfig(evas) >= 1.8.0
 BuildRequires:	pkgconfig(libsystemd-journal)
 BuildRequires:	pkgconfig(libsystemd-daemon)
 BuildRequires:	evas_generic_loaders
 BuildRequires:  pkgconfig(efl)
-BuildRequires:  pkgconfig(eolian)
+#BuildRequires:  pkgconfig(eolian)
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-egl)
