@@ -4,8 +4,8 @@
 
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
-Version:	1.17.0
-Release:	0
+Version:	1.17.1
+Release:	1
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
