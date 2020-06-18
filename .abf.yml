@@ -1,5 +1,2 @@
-removed_sources:
-  elementary-1.10.2.tar.bz2: 3ffec0ecd0ca64da2cc966bcff814d7d5a70b8a3
-  elementary-1.13.2.tar.xz: ee5198f5c62ba1adb54be81af5bf358061d44991
 sources:
-  elementary-1.17.0.tar.xz: b335c069f54cf0c29d632e6c6d1b5124202e59d1
+  elementary-1.17.1.tar.xz: d02a1e2790b8c752d3c4f943a4616f74d0070fb4
