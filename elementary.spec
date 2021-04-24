@@ -5,12 +5,12 @@
 Summary:	Basic widget set based on EFL for mobile touch-screen devices
 Name:		elementary
 Version:	1.17.1
-Release:	1
+Release:	2
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.xz
-Source100:      %{name}.rpmlintrc
+Source100:	%{name}.rpmlintrc
 #Patch0:         include-index-h.patch
 #Patch1:         include-menu-h.patch
 #Patch2:	 include-segment-h.patch
@@ -37,11 +37,11 @@ BuildRequires:	gettext-devel
 #BuildRequires:	pkgconfig(eo) >= 1.8.0
 #BuildRequires:	pkgconfig(evas) >= 1.8.0
 BuildRequires:	pkgconfig(libsystemd)
-BuildRequires:  pkgconfig(efl)
+BuildRequires:	pkgconfig(efl)
 #BuildRequires:  pkgconfig(eolian)
-BuildRequires:  pkgconfig(wayland-server)
-BuildRequires:  pkgconfig(wayland-client)
-BuildRequires:  pkgconfig(wayland-egl)
+BuildRequires:	pkgconfig(wayland-server)
+BuildRequires:	pkgconfig(wayland-client)
+BuildRequires:	pkgconfig(wayland-egl)
 BuildRequires:	desktop-file-utils
 
 # Extra stuff
@@ -57,14 +57,16 @@ This package is part of the Enlightenment DR17 desktop shell.
 
 %files -f %{name}.lang
 %doc AUTHORS COPYING README
+%dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/modules
+%dir %{_datadir}/%{name}
 %{_bindir}/%{name}_run
 %{_bindir}/elementary_codegen
 %{_bindir}/elementary_config
 %{_bindir}/elementary_quicklaunch
 %{_bindir}/elm_prefs_cc
 %{_libdir}/edje/modules/elm/v*/module.so
-%{_libdir}/elementary/modules/access_output/v*
-%{_libdir}/elementary/modules/prefs/v*
+%{_libdir}/elementary/modules/*
 %{_datadir}/applications/%{name}_config.desktop
 %{_datadir}/%{name}/config/*
 %{_datadir}/%{name}/edje_externals/*
@@ -111,18 +113,16 @@ Provides:	%{name}-devel = %{EVRD}
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-#%autopatch -p1
-
+%autosetup -p1
 
 %build
 %configure CC=gcc BUILD_CC=gcc TARGET_CC=gcc LIBS=-lwayland-client \
 	--enable-ecore-wayland \
 	--disable-static
-make all
+
+%make_all
 
 %install
-%makeinstall_std
+%make_install
 
 %find_lang %{name}
-
