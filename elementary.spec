@@ -8,7 +8,7 @@ Version:	1.17.1
 Release:	2
 License:	LGPLv2.1+
 Group:		Graphical desktop/Enlightenment
-Url:		http://www.enlightenment.org/
+Url:		https://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/libs/%{name}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 #Patch0:         include-index-h.patch
